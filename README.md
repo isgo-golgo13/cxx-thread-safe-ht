@@ -14,7 +14,7 @@ cxx-thread-safe-ht
     └── main.cpp         
 ```
 
-## Compiling using CMake
+## Compiling using CMake (uses FetchContent)
 
 Using CMake `FetchContent` to automatically pull the project dependencies.
 
