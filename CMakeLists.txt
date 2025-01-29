@@ -20,26 +20,29 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(blake3)
 
+# Manually add BLAKE3 source files (necessary for compilation)
+set(BLAKE3_SOURCES
+    ${blake3_SOURCE_DIR}/c/blake3.c
+    ${blake3_SOURCE_DIR}/c/blake3_dispatch.c
+    ${blake3_SOURCE_DIR}/c/blake3_portable.c
+)
+
 # Add source files
 set(SOURCES
     src/hash_function.cpp
     src/main.cpp
+    ${BLAKE3_SOURCES}  # Add Blake3 sources to the project
 )
 
 # Include directories for headers
-include_directories(src)
+include_directories(src ${blake3_SOURCE_DIR}/c)  # Include BLAKE3 headers
 
 # Add the executable
 add_executable(ThreadSafeHashTable ${SOURCES})
 
-# Link the BLAKE3 library
-target_link_libraries(ThreadSafeHashTable PRIVATE blake3)
-
 # Compiler warnings (optional but recommended)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(ThreadSafeHashTable PRIVATE -Wall -Wextra -pedantic)
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(ThreadSafeHashTable PRIVATE /W4 /permissive-)
 endif()
 
 # Link required libraries (e.g., pthread)
