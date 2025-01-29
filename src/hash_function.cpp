@@ -1,4 +1,5 @@
 #include "hash_function.hpp"
+#include <fmt/core.h>
 
 // Compute BLAKE3 hash
 std::string compute_hash(const std::string& input) {
@@ -11,7 +12,7 @@ std::string compute_hash(const std::string& input) {
 
     std::string hex_output;
     for (size_t i = 0; i < BLAKE3_OUT_LEN; ++i) {
-        hex_output += std::format("{:02x}", output[i]);
+        hex_output += fmt::format("{:02x}", output[i]);
     }
     return hex_output;
 }

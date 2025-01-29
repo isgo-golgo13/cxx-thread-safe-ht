@@ -2,7 +2,6 @@
 #define HASH_FUNCTION_HPP
 
 #include <string>
-#include <format>
 #include <blake3.h>
 
 // Computes the Blake3 hash for the given input

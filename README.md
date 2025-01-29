@@ -41,10 +41,10 @@ mkdir dist && cd dist
 cmake ..
 ```
 
-The previous step will pull down the `blake3` library dependency and compile it as part of the project.
+The previous step will pull down the `blake3` library dependency and compile it as part of the project.  This will download `blake3` source code into `dist/_deps/blake3-src/` configure the project and auto-configure the depenencies.
 
 
-- Compile to the exe
+- Compile to the EXE
 ```shell
 cmake --build .
 ```

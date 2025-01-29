@@ -3,6 +3,10 @@
 
 #include "hash_table.hpp"
 
+#include <iostream>
+#include <mutex>
+
+
 // Constructor
 template <typename Key, typename Value>
 HashTable<Key, Value>::HashTable(size_t initial_size) : table(initial_size) {}
