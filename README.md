@@ -1,4 +1,5 @@
 ## C++ 20 Thread-Safe HashTable
+C++20 Thread-Safe Hash-Table using CMake FetchContent Dependency Git Download
 
 ## Project Structure
 
